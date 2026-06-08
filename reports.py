@@ -23,3 +23,9 @@ def top_category(store: ExpenseStore) -> str:
     if not totals:
         return "none"
     return max(totals, key=totals.get)
+
+def average_expense(store: ExpenseStore) -> float:
+    expenses = store.all()
+    if not expenses:
+        return 0.0
+    return total_spent(store) / len(expenses)
